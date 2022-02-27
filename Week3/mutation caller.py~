@@ -1,0 +1,7 @@
+import pysam
+samfile=pysam.AlignmentFile("normal.bam","rb")
+
+for read in samfile.fetch(until_eof=True):
+        print(read)
+
+samfile.close()
