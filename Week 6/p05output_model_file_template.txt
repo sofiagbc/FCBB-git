@@ -1,0 +1,5 @@
+Position	1	2	3	4	5	6
+A	count/total	count/total	count/total	count/total	count/total	count/total
+C	count/total	count/total	count/total	count/total	count/total	count/total
+G	count/total	count/total	count/total	count/total	count/total	count/total
+T	count/total	count/total	count/total	count/total	count/total	count/total
