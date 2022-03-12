@@ -3,17 +3,11 @@ library('getopt')
 args <- commandArgs(TRUE)
 print(args)
 
-spec = matrix(c(
-  'verbose', 'v', 2, "integer",
-  'help'   , 'h', 0, "logical",
-  'count'  , 'c', 1, "integer",
-  'mean'   , 'm', 1, "double",
-  'sd'     , 's', 1, "double"
-), byrow=TRUE, ncol=4)
+spec = matrix(c("input", "i", 2, "string","output", "o", 2, "string"), byrow=TRUE, ncol=4)
+print(spec)
+opt=getopt(spec=spec,args)
 opt = getopt(spec)
 print(opt)
-
-"""
 
 # get flags here with getopt
 
@@ -46,7 +40,7 @@ flag <- 0
 for (i in 1:m) {
   data$qvalue[i] <- data$pvalue[i]*m/i 
   if (data$qvalue[i]>fdr & flag==0) {
-    index <- i
+    index <- i-1
     flag <- 1
   }
     
@@ -61,6 +55,4 @@ write.table(data,output,quote=FALSE, sep="\t",row.names=FALSE)
 
 # round values from beginning or only in the output file?
 # check rounding, not correct
-    
-"""
 
