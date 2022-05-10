@@ -1,21 +1,16 @@
 library('getopt')
 
 args <- commandArgs(TRUE)
-print(args)
+#print(args)
 
-spec = matrix(c("input", "i", 2, "string","output", "o", 2, "string"), byrow=TRUE, ncol=4)
-print(spec)
-opt=getopt(spec=spec,args)
-opt = getopt(spec)
-print(opt)
+spec = matrix(c("input", "i", 1, "character","output", "o", 1, "character"), byrow=TRUE, ncol=4)
+opt=getopt(spec)
+#print(opt)
 
 # get flags here with getopt
 
-input <- args[2]
-output <- args[4]
-
-input <- "p05pvalues.tsv"
-output <- "pvalues.corrected.tsv"
+input <- opt$input
+output <- opt$output
 
 data_input <- read.table(input, header=TRUE, sep= "\t")
 m=length(data_input$index)
@@ -53,6 +48,4 @@ data$qvalue <- round(data$qvalue,6)
 write.table(data,output,quote=FALSE, sep="\t",row.names=FALSE)
 
 
-# round values from beginning or only in the output file?
-# check rounding, not correct
 
